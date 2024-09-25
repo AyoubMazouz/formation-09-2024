@@ -15,6 +15,11 @@ public class UserRepository : IUser
         _context = context;
     }
 
+    public async Task<List<User>> List()
+    {
+        return await _context.Users.ToListAsync();
+    }
+
     public async Task<User> Save(User user)
     {
         var newUser = await _context.Users.AddAsync(user);
@@ -32,13 +37,13 @@ public class UserRepository : IUser
         return await _context.Users.FirstOrDefaultAsync(i => i.UserName == name);
     }
 
-    public async Task<User?> SignIn(string username, string password)
-    {
-        //User? user = await FindByName(username);
-        //if (user == null)
-        //{
+    //public async Task<User?> SignIn(string username, string password)
+    //{
+    //    //User? user = await FindByName(username);
+    //    //if (user == null)
+    //    //{
             
-        //}
-    }
+    //    //}
+    //}
 }
 
