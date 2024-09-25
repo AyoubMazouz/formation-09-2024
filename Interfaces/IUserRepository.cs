@@ -2,11 +2,11 @@
 
 namespace formation.Interfaces;
 
-public interface IUser
+public interface IUserRepository
 {
     Task<User> Save(User user);
     Task<User?> FindByName(string name);
     Task<User?> FindById(int id);
-    Task<User> SignIn(string username, string password);
+    Task<bool> SignIn(string username, string password);
 }
 
